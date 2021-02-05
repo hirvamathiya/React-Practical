@@ -20,8 +20,13 @@ const AddUser = () => {
   const onSubmit = async e => {
     e.preventDefault();
     await axios.post("http://localhost:3003/users", user);
-    history.push("/");
-  };
+    .then(response =>{
+      history.push("/");
+    })
+    .catch(err => {
+    console.log(err);
+    });
+    };
  
      return(
         <div className="container">
@@ -83,7 +88,5 @@ const AddUser = () => {
         </div>
       </div>
      );
-
 }
-
 export default AddUser;
