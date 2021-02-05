@@ -15,7 +15,6 @@ function App() {
   return (
     <BrowserRouter>
     <div className="App">
-     
         <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -26,10 +25,8 @@ function App() {
           <Route exact path="/user/view/:id" component={ViewUser} />
           <Route component={Error} />
         </Switch>
-  
     </div>
     </BrowserRouter>
   );
 }
-
 export default App;
