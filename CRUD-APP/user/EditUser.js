@@ -44,7 +44,7 @@ const EditUser = () => {
    catch(err)
     {
     console.log(err);
-    }; 
+    }
   };
   
   return (
