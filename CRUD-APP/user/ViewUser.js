@@ -17,13 +17,15 @@ const ViewUser = () => {
   }, []);
   
   const loadUser = async () => {
-    const res = await axios.get(`http://localhost:3003/users/${id}`);
-     .then(res => {
-     setUser(res.data);
-    })
-    .catch(err => {
+     try
+     {
+       const res = await axios.get(`http://localhost:3003/users/${id}`);
+       setUser(res.data);
+     }
+    catch(err) 
+    {
     console.log(err);
-    });
+    }
   };
   
   return (
