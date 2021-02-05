@@ -25,13 +25,24 @@ const EditUser = () => {
   const onSubmit = async e => {
     e.preventDefault();
     await axios.put(`http://localhost:3003/users/${id}`, user);
+    .then(res => {
     history.push("/");
+    })
+    .catch(err => {
+    console.log(err);
+    });
   };
 
   const loadUser = async () => {
     const result = await axios.get(`http://localhost:3003/users/${id}`);
-    setUser(result.data);
+    .then(res => {
+     setUser(result.data);
+    })
+   .catch(err => {
+    console.log(err);
+    }); 
   };
+  
   return (
     <div className="container">
       <div className="w-75 mx-auto shadow p-5">
