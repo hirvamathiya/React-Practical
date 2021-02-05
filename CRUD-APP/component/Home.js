@@ -26,36 +26,34 @@ const Home = () =>{
         <div className="py-4">
           <h1>Home Page</h1>
           <table class="table border shadow">
-  <thead className="thead-dark">
-    <tr>
-      <th scope="col">Item</th>
-      <th scope="col">Name</th>
-      <th scope="col">Usename</th>
-      <th scope="col">Email</th>
-      <th>Action</th>
-    </tr>
-  </thead>
-  <tbody>
-    {
-        users.map((user,index) =>(
-        <tr>
-           <th scope="row">{index + 1}</th>
-           <td>{user.name}</td>
-           <td>{user.username}</td>
-           <td>{user.email}</td>
-           <td>
-               <Link class="btn btn-primary mr-2" to={`user/view/${user.id}`}>View</Link>
-               <Link class="btn btn-outline-primary mr-2" to={`user/edit/${user.id}`}>Edit</Link>
-               <Link class="btn btn-danger" onClick={() =>deleteUser(user.id)}>Delete</Link>
-               
-               </td>
-           </tr>
+          <thead className="thead-dark">
+          <tr>
+           <th scope="col">Item</th>
+           <th scope="col">Name</th>
+           <th scope="col">Usename</th>
+           <th scope="col">Email</th>
+           <th>Action</th>
+          </tr>
+          </thead>
+          <tbody>
+           {
+              users.map((user,index) =>(
+              <tr>
+               <th scope="row">{index + 1}</th>
+                <td>{user.name}</td>
+                <td>{user.username}</td>
+                <td>{user.email}</td>
+                <td>
+                 <Link class="btn btn-primary mr-2" to={`user/view/${user.id}`}>View</Link>
+                 <Link class="btn btn-outline-primary mr-2" to={`user/edit/${user.id}`}>Edit</Link>
+                 <Link class="btn btn-danger" onClick={() =>deleteUser(user.id)}>Delete</Link>
+                </td>
+               </tr>
          ))}
-  </tbody>
-</table>
+         </tbody>
+         </table>
         </div>
       </div>
     );
 }
-
 export default Home;
