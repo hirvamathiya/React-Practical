@@ -11,18 +11,24 @@ const ViewUser = () => {
     webiste: ""
   });
   const { id } = useParams();
+  
   useEffect(() => {
     loadUser();
   }, []);
+  
   const loadUser = async () => {
     const res = await axios.get(`http://localhost:3003/users/${id}`);
-    setUser(res.data);
+     .then(res => {
+     setUser(res.data);
+    })
+    .catch(err => {
+    console.log(err);
+    });
   };
+  
   return (
     <div className="container py-4">
-      <Link className="btn btn-secondary" to="/">
-        back to Home
-      </Link>
+      <Link className="btn btn-secondary" to="/">Back to Home</Link>
       <h1 className="display-4">User Id: {id}</h1>
       <hr />
       <ul className="list-group w-50">
