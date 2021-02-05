@@ -12,13 +12,28 @@ const Home = () =>{
     } ,[]);
 
     const loadUsers = async() =>{
-        const result= await axios.get("http://localhost:3003/users");
-        setUser(result.data.reverse());
+        try
+        {
+          const result= await axios.get("http://localhost:3003/users");
+          setUser(result.data.reverse());
+        } 
+        catch(err)
+        {
+            console.log(err);
+        }      
     };
    
-    const deleteUser = async id =>{
-        await axios.delete(`http://localhost:3003/users/${id}`);
-        loadUsers();
+    const deleteUser = async id =>
+    {
+        try
+        {
+           await axios.delete(`http://localhost:3003/users/${id}`);
+           loadUsers();  
+        }
+        catch(err)
+        {
+            console.log(err);
+        } 
     };
 
     return (
