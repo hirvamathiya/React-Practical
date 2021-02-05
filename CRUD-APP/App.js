@@ -1,5 +1,4 @@
 import React,{Suspense} from 'react';
-import Loader from '../../Components/Loader/LoaderModal';
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 // import Home from './components/Home';
