@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const About = () =>{
 
     return (
@@ -16,8 +15,6 @@ const About = () =>{
 You can install React Router from the public npm registry with either npm or yarn. Since we’re building a web app, we’ll use react-router-dom in this guide.npm install react-router-dom
 Next, copy/paste either of the following examples into src/App.js.
 </p>
-
-        
         </div>
       </div>
     );
