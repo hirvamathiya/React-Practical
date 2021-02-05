@@ -19,13 +19,15 @@ const AddUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.post("http://localhost:3003/users", user);
-    .then(response =>{
-      history.push("/");
-    })
-    .catch(err => {
+    try
+    {
+      await axios.post("http://localhost:3003/users", user);
+       history.push("/");
+    }
+    catch(err)
+    {
     console.log(err);
-    });
+    }
     };
  
      return(
