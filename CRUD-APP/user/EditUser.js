@@ -24,23 +24,27 @@ const EditUser = () => {
 
   const onSubmit = async e => {
     e.preventDefault();
-    await axios.put(`http://localhost:3003/users/${id}`, user);
-    .then(res => {
-    history.push("/");
-    })
-    .catch(err => {
+    try
+    {
+      await axios.put(`http://localhost:3003/users/${id}`, user);
+       history.push("/");
+    }
+    catch(err)
+    {
     console.log(err);
-    });
+    }
   };
 
   const loadUser = async () => {
-    const result = await axios.get(`http://localhost:3003/users/${id}`);
-    .then(res => {
-     setUser(result.data);
-    })
-   .catch(err => {
+    try
+    {
+       const result = await axios.get(`http://localhost:3003/users/${id}`);
+       setUser(result.data);
+    }
+   catch(err)
+    {
     console.log(err);
-    }); 
+    }; 
   };
   
   return (
