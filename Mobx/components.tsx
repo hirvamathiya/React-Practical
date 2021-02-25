@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react';
 import React, { useState } from 'react';
-import { TodoStoreImpl } from './Store';
+import { TodoStoreImpl } from './TodoStore';
 
 
 interface TodoListProps {
