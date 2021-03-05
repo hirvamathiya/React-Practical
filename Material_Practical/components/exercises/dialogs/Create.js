@@ -21,19 +21,14 @@ const styles = theme =>({
       }
 })
 
-
-
-
 export default withStyles(styles) (class extends Component{
-  
     state={
         open:false,
         exercise:{
             title:'',
             description:'',
             muscles:''
-        }
-        
+        }  
     }
      
     handleToggle =() =>{
@@ -68,9 +63,7 @@ export default withStyles(styles) (class extends Component{
             }
         })
     }
-     
-    
-
+   
      render(){
          const { open, exercise:{title,description,muscles} } = this.state,
               { classes, muscles :categories } = this.props
@@ -101,8 +94,8 @@ export default withStyles(styles) (class extends Component{
                 </FormControl><br/>
                 <TextField value={description} multiline rows="4" margin="normal" label="Description" className={classes.FormControl} onChange={this.handleChange('description')}/>
                 </form>
-             </DialogContent>
-             <DialogActions>
+               </DialogContent>
+              <DialogActions>
                <Button color="primary" variant="contained" onClick={this.handleSubmit}>
                  Create
                </Button>
@@ -110,7 +103,6 @@ export default withStyles(styles) (class extends Component{
            </Dialog>
        </Fragment>
          )
-     }
-     
+     }  
 })
   
