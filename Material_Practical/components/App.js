@@ -6,6 +6,9 @@ import {exercises, muscles} from '../Store';
 class App extends PureComponent {
     state = {
       exercises,
+      category :'',
+      exercise :{}
+
     }
     
     getExercisesByMuscles(){
@@ -21,18 +24,37 @@ class App extends PureComponent {
       )
     }
 
+    handleCategorySelected = (category) =>{
+        this.setState({
+           category
+        })
+    } 
+
+    handleExerciseSelected = (id) =>{
+        this.setState(({exercises})=>({
+          exercise :exercises.find(ex =>ex.id===id)
+        }))
+    }
+
+    handleExerciseCreate = exercise =>{
+      this.setState(({exercises}) =>({
+          exercises :[
+            ...exercises,exercise
+          ]
+      }))
+    }
+
     render(){
       
       const exercises = this.getExercisesByMuscles()
-
-      return (
+       return (
         <>
-       <Header />
+       <Header muscles={muscles}  onExerciseCreate={this.handleExerciseCreate}  />
 
-       <Exercises exercises ={exercises}/>
+       <Exercises exercises ={exercises} category={this.state.category} onSelect={this.handleExerciseSelected} exercise={this.state.exercise}/>
 
-       <Footer muscles={muscles}/>
-      </>
+       <Footer muscles={muscles} onSelect={this.handleCategorySelected} category={this.state.category}/>
+        </>
       )}
 }
 
