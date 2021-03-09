@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
-import { Grid, Paper, Typography } from "@material-ui/core";
+import { Grid, IconButton, ListItemSecondaryAction, Paper, Typography } from "@material-ui/core";
 import {List,ListItem,ListItemText} from '@material-ui/core';
-
+import { Delete, Edit } from '@material-ui/icons';
+import Form from './Form';
 
 const styles ={
     Paper :{
@@ -14,7 +15,18 @@ const styles ={
     }
 }
 
-export default ({exercises, category,onSelect,exercise:{id,title='Welcome',description='Please select an exercise from the list on left.'}}) =>
+export default ({exercises, 
+                category,
+                muscles,
+                editMode,
+                onSelect,
+                exercise,
+                exercise:
+                {id,title='Welcome',description='Please select an exercise from the list on left.'},
+                onDelete,
+                onSelectEdit,
+                onEdit
+              }) =>
   <Grid container>
        <Grid item sm>
            <Paper style={styles.Paper}>
@@ -31,24 +43,35 @@ export default ({exercises, category,onSelect,exercise:{id,title='Welcome',descr
                   {exercises.map(({id,title}) =>
                    <ListItem key={id} button onClick={() => onSelect(id)} >
                    <ListItemText primary={title} />
+                   <ListItemSecondaryAction>
+                     <IconButton onClick={() => onSelectEdit(id)}>
+                       <Edit />
+                     </IconButton>
+                     <IconButton onClick={() => onDelete(id)}>
+                       <Delete />
+                     </IconButton>
+                   </ListItemSecondaryAction>
                  </ListItem>
              )} 
             </List>
             </Fragment> 
              :null
-          
            )}
            </Paper>
-          
        </Grid>
        <Grid item sm>
           <Paper style ={styles.Paper} >
-           <Typography variant="h3"> 
+            {editMode? 
+            <Form key={id} muscles={muscles} onSubmit={onEdit} exercise={exercise} />:
+            <Fragment>
+              <Typography variant="h3"> 
              {title}
-           </Typography>
-           <Typography style={{margin:10}} variant="h6"> 
-            {description}
-           </Typography>
+              </Typography>
+              <Typography style={{margin:10}} variant="h6"> 
+               {description}
+              </Typography>  
+            </Fragment>
+            }
           </Paper>
        </Grid>
   </Grid>
