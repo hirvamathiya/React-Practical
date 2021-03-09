@@ -39,7 +39,7 @@ const styles = theme =>({
          id:this.state.title.toLowerCase().replace(/ /g, '-'),
          ...this.state
      })
-    //  this.setState(this.getInitState())
+
     }
 
     render(){
