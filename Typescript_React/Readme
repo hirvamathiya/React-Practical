@@ -1,0 +1,4 @@
+This folder shows practical implementation of Typescript with React.
+This practical is basically Todo List app with the help og typescript and React.
+Used interface and types for practical.
+Also used tslint to show error in the code.
