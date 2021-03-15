@@ -7,11 +7,12 @@ interface TodoListItemProps{
 };
 
 
-export const TodoListItem:React.FC<TodoListItemProps> = ({ todo,toggleTodo }) =>{
-    return <li>
+export const TodoListItem:React.FC<TodoListItemProps> = ({ todo,toggleTodo }) =>
+             <li>
              <label style={{textDecoration :todo.complete? "line-through" : undefined}}>
               <input type="checkbox" checked={todo.complete} onChange={() => toggleTodo(todo)}/>
               {todo.text}
              </label>
             </li>;
 };
+
