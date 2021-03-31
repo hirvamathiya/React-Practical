@@ -1,0 +1,35 @@
+This project is build using MERN technologies.
+In this project For front-end I have used React , for backend I have used Node.
+I have used express server and MongoDB database.
+I have implemented with the help of REDUX , Hooks, React-Router , Axios, JWT , bcryptjs , React-Redux. 
+
+To run application.
+
+1)Open Command Prompt.
+Then enter this below command.
+mongod --port 27017 --dbpath mongo
+
+2)Open vscode.
+In terminal type this command.
+npm start 
+which start our backend at port number 5000 which I had set in my server file.
+
+3)Add one new terminal using + icon in terminal.
+then go into frontend folder using cd frontend.
+Then type below command which start our react application at port localhost:3000.
+npm start
+
+In this project I have implemented below functionalities.
+ 1) Navbar which shows sign in and cart 
+ 2)Footer part
+ 3)Main section which shows products with its description, price , reviewss
+ 4) Add to cart functionality through which user can add product in cart.
+ 5)If user is new then user can register and if user has completed already sign up part then user can directly sign in.
+ 6)If user click on particular product then user can see that product image , its description , number of quantity they want to add, its price.
+ 7)After adding to cart user can see those prooduct in their own cart.
+ 8)User can proceed with checkout and also if they want to remove that item from cart they can do bith things.
+ 9)After that user need to give shipping address.
+ 10)After proceed to checkout user redirect to new page where user can see grand total, particular product price, everything and paymnet option.
+ 11)User can pay with card also.After paying money user can see details regarding whether product is delivered or not .
+ 12)In Navbar also after successful sign in user can signout , update his/her profile , view order history.
+ 
